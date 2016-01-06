@@ -2,7 +2,7 @@
 
 This image is a base imagem for Laravel application served by Apache with mod_php
 
-![logo PHP](php-logo.png) ![logo Laravel](laravel-logo.png) ![Apache](httpd-logo.png)
+![logo PHP](/php-logo.png) ![logo Laravel](/laravel-logo.png) ![Apache](/httpd-logo.png)
 
 [PHP][1]
 [Laravel][2]
@@ -46,12 +46,10 @@ RUN docker-php-ext-install \
 This image includes multiple `ONBUILD` triggers which should cover most Laravel applications.
 The build will:
 
-* `ONBUILD COPY composer.json /usr/src/app/`
-* `ONBUILD COPY composer.lock /usr/src/app/`
-* `ONBUILD COPY database/ /usr/src/app/database/`
+* `ONBUILD COPY . /var/www/html`
+* `ONBUILD RUN rm -Rf vendor/`
+* `ONBUILD RUN rm -Rf tests/`
 * `ONBUILD RUN composer install --prefer-dist --optimize-autoloader --no-dev --profile -vvv`
-* `ONBUILD RUN chown -R www-data:www-data /usr/src/app/storage/`
-* `ONBUILD VOLUME /usr/src/app/storage`
 
 The build also sets the default command to `apache2-foreground` to start apache2 service.
 
