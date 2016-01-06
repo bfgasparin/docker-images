@@ -50,6 +50,12 @@ The build will:
 * `ONBUILD RUN rm -Rf vendor/`
 * `ONBUILD RUN rm -Rf tests/`
 * `ONBUILD RUN composer install --prefer-dist --optimize-autoloader --no-dev --profile -vvv`
+* `ONBUILD RUN php artisan clear-compiled`
+* `ONBUILD RUN php artisan optimize`
+* `ONBUILD RUN php artisan config:cache`
+* `ONBUILD RUN chown -R www-data:www-data /var/www/html/storage/`
+* `ONBUILD VOLUME /var/www/html/storage`
+
 
 The build also sets the default command to `apache2-foreground` to start apache2 service.
 

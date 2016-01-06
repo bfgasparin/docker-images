@@ -39,6 +39,10 @@ ONBUILD RUN rm -Rf vendor/
 ONBUILD RUN rm -Rf tests/
 ONBUILD RUN composer install --prefer-dist --optimize-autoloader --no-dev --profile -vvv
 
+ONBUILD RUN php artisan clear-compiled
+ONBUILD RUN php artisan optimize
+ONBUILD RUN php artisan config:cache
+
 # Configure directory permissions for the web server
 ONBUILD RUN chown -R www-data:www-data /var/www/html/storage/
 
