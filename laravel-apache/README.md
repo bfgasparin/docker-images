@@ -1,6 +1,6 @@
 # Laravel Base Image
 
-This image is a base imagem for Laravel application served by Apache with mod_php
+This image is a base imagem for Laravel application served by Apache with mod_php running **php 7**.
 
 ![logo PHP](php-logo.png) ![logo Laravel](laravel-logo.png) ![Apache](httpd-logo.png)
 
@@ -17,7 +17,7 @@ This image is a base imagem for Laravel application served by Apache with mod_ph
 ## Create a `Dockerfile` in your Laravel project:
 
 ```dockerfile
-FROM oraculometeorologia/laravel-apache:5-onbuild
+FROM bfgasparin/laravel-apache:5-onbuild
 ```
 
 Put this file in the root of your app, next to the `composer.json`.
@@ -29,7 +29,7 @@ and binaries to communicate to PostgreSQL as well as the postgres php extension.
 You can do it in your `Dockerfile`:
 
 ```dockerfile
-FROM oraculometeorologia/laravel-apache:5-onbuild
+FROM bfgasparin/laravel-apache:5-onbuild
 
 # Install postgres libraries and headers for C language
 RUN apt-get update && apt-get install -y \
@@ -87,7 +87,7 @@ PHP is configured to run optimized (for this image to be used in production). Yo
 configuration adding a custom `php.ini` configuration. `COPY` it into `/usr/local/etc/php` by
 adding one more line to your Dockerfile:
 
-    FROM oraculometeorologia/symfony-apache:onbuild
+    FROM bfgasparin/symfony-apache:5-onbuild
     COPY config/php.ini /usr/local/etc/php
 
 ## Configuring Laravel
@@ -119,7 +119,7 @@ security, performance and best practices. To customize the php behavior for deve
  by adding one more line to the Dockerfile above and running the same commands to build and run:
 
 ```dockerfile
-FROM oraculometeorologia/laravel-apache:5-onbuild
+FROM bfgasparin/laravel-apache:5-onbuild
 COPY config/php.ini $PHP_INI_DIR
 ```
 
