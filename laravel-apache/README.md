@@ -2,7 +2,7 @@
 
 This image is a base imagem for Laravel application served by Apache with mod_php
 
-![logo PHP](/php-logo.png) ![logo Laravel](/laravel-logo.png) ![Apache](/httpd-logo.png)
+![logo PHP](php-logo.png) ![logo Laravel](laravel-logo.png) ![Apache](httpd-logo.png)
 
 [PHP][1]
 [Laravel][2]
