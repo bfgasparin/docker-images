@@ -47,4 +47,6 @@ ONBUILD RUN php artisan config:cache
 ONBUILD RUN chown -R www-data:www-data /var/www/html/storage/
 
 # Configure data volume
-ONBUILD VOLUME /var/www/html/storage
+ONBUILD VOLUME /var/www/html/storage/app
+ONBUILD VOLUME /var/www/html/storage/framework/sessions
+ONBUILD VOLUME /var/www/html/storage/logs
